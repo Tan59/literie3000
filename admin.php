@@ -19,10 +19,14 @@ include("tpl/header.php");
         <?php
         foreach ($matelas as $matela) {
         ?>
+
+
+
             <div class="matelas">
                 <div class="picture">
                     <img src="<?= $matela["picture"] ?>" alt="">
                 </div>
+
 
                 <div>
                     <p> Matelas <?= $matela["nom"] ?></p>
@@ -36,10 +40,12 @@ include("tpl/header.php");
                 </div>
 
                 <div class="modify">
-                <a href="modify.php?id=<?= $matela["id"]?>">Modifier le matelas</a>
-                <a href="delete.php?id=<?= $matela["id"]?>">Supprimer le matelas</a>
+                    <a href="modify.php?id=<?= $matela["id"] ?>">Modifier le matelas</a>
+                    <a href="delete.php?id=<?= $matela["id"] ?>">Supprimer le matelas</a>
                 </div>
-                <input type="checkbox" id="scales" name="scales" checked>
+                <form action="">
+                    <input type="checkbox" id="scales" name="scales" <?php echo ($matela["dispo"] == 1) ? 'checked' : '' ?>>
+                </form>
             </div>
 
 

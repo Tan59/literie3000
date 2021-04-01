@@ -14,15 +14,19 @@ if (isset($_GET["id"])) {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
         ]);
     
-        $query = $db->prepare("UPDATE matelas set");
+        $id = $_GET["id"];
+
+        $query = $db->prepare("UPDATE matelas
+        SET nom= :newnom, dimension=:newdimension, marque=:newmarque, initprice=:newinitprice, soldprice=:newsoldprice, picture=:newpicture
+        WHERE id=$id;
+        ");
         $query->bindParam(":newnom", $newnom);
         $query->bindParam(":newmarque", $newmarque);
         $query->bindParam("newdimension", $newdimension);
         $query->bindParam(":newinitprice", $newinitprice);
         $query->bindParam(":newsoldprice", $newsoldprice);
         $query->bindParam(":newpicture", $newpicture);
-    
-    
+        
         if ($query->execute()) {
     
         } else {
@@ -61,30 +65,30 @@ if (isset($_GET["id"])) {
                 </div>
             </div>
 
-            <form action="" class="matelas">
+            <form action="" class="matelas" method="POST">
                 <div class="label">
-                    <label for="">Nouvelle image</label>
-                    <input type="text" name="newpicture">
+                    <label for="">Image</label>
+                    <input type="text" name="newpicture" value=<?= $matela["picture"] ?>>
                 </div>
 
                 <div class="label">
-                    <label for="">Nouveau Nom</label>
-                    <input type="text" name="newname">
+                    <label for="">Nom</label>
+                    <input type="text" name="newnom" value=<?= $matela["nom"]?>>
 
-                    <label for="">Nouvelle dimension</label>
-                    <input type="text" name="newdimension">
+                    <label for="">Dimension</label>
+                    <input type="text" name="newdimension" value=<?= $matela["dimension"]?>>
                 </div>
 
                 <div class="label">
-                    <label for="">Nouvelle marque</label>
-                    <input type="text" name="newmarque">
+                    <label for="">Marque</label>
+                    <input type="text" name="newmarque" value=<?= $matela["marque"]?>>
                 </div>
 
                 <div class="label">
-                    <label for="">Nouveau Prix initial</label>
-                    <input type="text" name="newinitprice">
-                    <label for="">Nouveau Prix en promotion</label>
-                    <input type="text" class="newsoldprice">
+                    <label for="">Prix initial</label>
+                    <input type="number" name="newinitprice" value=<?= $matela["initprice"]?>>
+                    <label for="">Prix en promotion</label>
+                    <input type="number" name="newsoldprice" value=<?= $matela["soldprice"]?>>
                 </div>
 
                 <input type="submit" value="Modifier le matelas">

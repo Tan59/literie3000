@@ -4,7 +4,7 @@ $db = new PDO('mysql:host=localhost;dbname=literie3000', 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
 ]);
 
-$query = $db->query("SELECT * FROM matelas");
+$query = $db->query("SELECT * FROM matelas WHERE dispo = 1 ");
 $matelas = $query->fetchAll();
 
 include("tpl/header.php");
