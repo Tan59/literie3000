@@ -9,6 +9,11 @@ if (isset($_GET["id"])) {
         $newinitprice = trim(strip_tags($_POST["newinitprice"]));
         $newsoldprice = trim(strip_tags($_POST["newsoldprice"]));
         $newpicture = trim(strip_tags($_POST["newpicture"]));
+        if (isset($_POST["dispo"])) {
+            $newcheckbox = 1;
+        } else {
+            $newcheckbox = 0;
+        }
     
         $db = new PDO('mysql:host=localhost;dbname=literie3000', 'root', '', [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
@@ -17,7 +22,7 @@ if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
         $query = $db->prepare("UPDATE matelas
-        SET nom= :newnom, dimension=:newdimension, marque=:newmarque, initprice=:newinitprice, soldprice=:newsoldprice, picture=:newpicture
+        SET nom= :newnom, dimension=:newdimension, marque=:newmarque, initprice=:newinitprice, soldprice=:newsoldprice, picture=:newpicture, dispo = :newcheckbox
         WHERE id=$id;
         ");
         $query->bindParam(":newnom", $newnom);
@@ -26,6 +31,7 @@ if (isset($_GET["id"])) {
         $query->bindParam(":newinitprice", $newinitprice);
         $query->bindParam(":newsoldprice", $newsoldprice);
         $query->bindParam(":newpicture", $newpicture);
+        $query->bindParam(":newcheckbox", $newcheckbox);
         
         if ($query->execute()) {
     
@@ -65,7 +71,7 @@ if (isset($_GET["id"])) {
                 </div>
             </div>
 
-            <form action="" class="matelas" method="POST">
+            <form action="" class="matelasm" method="POST">
                 <div class="label">
                     <label for="">Image</label>
                     <input type="text" name="newpicture" value=<?= $matela["picture"] ?>>
@@ -90,6 +96,8 @@ if (isset($_GET["id"])) {
                     <label for="">Prix en promotion</label>
                     <input type="number" name="newsoldprice" value=<?= $matela["soldprice"]?>>
                 </div>
+
+                <input type="checkbox" id="scales" name="dispo" <?php echo ($matela["dispo"] == 1) ? 'checked' : '' ?>>
 
                 <input type="submit" value="Modifier le matelas">
             </form>

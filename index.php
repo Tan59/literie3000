@@ -13,7 +13,13 @@ include("tpl/header.php");
 
 <main>
     <div class="container">
-
+        <h1>CATALOGUE</h1>
+        <div class="title">
+            <h2>Image</h2>
+            <h2>Nom/dimensions</h2>
+            <h2>Marque</h2>
+            <h2>Prix</h2>
+        </div>
         <?php
         foreach ($matelas as $matela) {
         ?>
@@ -23,7 +29,7 @@ include("tpl/header.php");
                 </div>
 
                 <div>
-                    <p> Matelas <?=$matela["nom"] ?></p>
+                    <p> Matelas <?= $matela["nom"] ?></p>
                     <p><?= $matela["dimension"] ?></p>
                 </div>
                 <p><?= $matela["marque"] ?></p>

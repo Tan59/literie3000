@@ -1,7 +1,36 @@
+body {
+  background-color: #f6f6f6;
+}
+
 .matelas {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+.matelas .modifm {
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+.matelas .modifm:hover {
+  background-color: #fcad1b;
+}
+.matelas .modifs {
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.matelas .modifs:hover {
+  background-color: #ff2626;
 }
 .matelas .initprice {
   text-decoration: line-through;
@@ -11,10 +40,16 @@
   flex-direction: column;
 }
 .matelas .picture {
-  width: 300px;
+  width: 250px;
 }
 .matelas .picture img {
   width: 100%;
+}
+
+.title {
+  display: flex;
+  max-width: 1700px;
+  justify-content: space-evenly;
 }
 
 .container {
@@ -22,14 +57,33 @@
   max-width: 1700px;
   display: flex;
   flex-direction: column;
+  background-color: #f0f0f0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.container h1 {
+  margin: auto;
 }
 
 header {
   max-width: 1600px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-bottom: 75px;
+  align-items: center;
+}
+header .modif {
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+}
+header .modif:hover {
+  background-color: #fcad1b;
 }
 
 .addmatelas {
@@ -60,6 +114,54 @@ header {
 }
 .label input {
   width: 300px;
+}
+
+#ajoutermatelas {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  width: 300px;
+  background-color: green;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  padding: 5px;
+}
+#ajoutermatelas:hover {
+  background-color: #016801;
+}
+
+/* Tablettes ordinateurs */
+.matelasm {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.matelasm input {
+  height: 25px;
+}
+
+@media only screen and (max-width: 1800px) {
+  .matelasm {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Smartphone  */
+@media only screen and (max-width: 767px) {
+  .picture {
+    max-width: 150px;
+  }
+
+  header {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .modifm {
+    font-size: 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

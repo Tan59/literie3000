@@ -14,7 +14,7 @@
 
     <header>
         <a href="index.php"><img src="img/logo.png" alt=""></a>
-        <a href="admin.php">Admin</a>
+        <a href="admin.php" class="modif">Modification</a>
     </header>
 
 
