@@ -1,0 +1,65 @@
+.matelas {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.matelas .initprice {
+  text-decoration: line-through;
+}
+.matelas .modify {
+  display: flex;
+  flex-direction: column;
+}
+.matelas .picture {
+  width: 300px;
+}
+.matelas .picture img {
+  width: 100%;
+}
+
+.container {
+  margin: auto;
+  max-width: 1700px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  max-width: 1600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 75px;
+}
+
+.addmatelas {
+  max-width: 1700px;
+  margin: auto;
+}
+.addmatelas h1 {
+  text-align: center;
+}
+.addmatelas form {
+  display: flex;
+  flex-direction: column;
+}
+.addmatelas form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 15px;
+}
+.addmatelas input {
+  width: 400px;
+  height: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+.label input {
+  width: 300px;
+}
+
+/*# sourceMappingURL=main.css.map */
